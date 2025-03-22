@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Damion&family=Dancing+Script:wght@400..700&family=Parisienne&family=Playwrite+HU:wght@100..400&family=Raleway:wght@100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -8,8 +9,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-dancing: "Dancing Script", cursive;
+  --font-raleway: "Raleway", sans-serif;
+  --font-playwrite: "Playwrite HU", cursive;
+  --font-parisienne: "Parisienne", cursive;
+  --font-damion: "Damion", cursive;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +26,62 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  @apply text-sm;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll linear infinite;
+}
+
+.hover\:pause-animation:hover {
+  animation-play-state: paused;
+}
+
+/* Services Section Scroll Behavior */
+.services-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(74, 70, 67, 0.3) transparent;
+}
+
+.services-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.services-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.services-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(74, 70, 67, 0.3);
+  border-radius: 3px;
+}
+
+.sticky.at-bottom {
+  position: relative;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }

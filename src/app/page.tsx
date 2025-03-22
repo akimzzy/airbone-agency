@@ -1,103 +1,131 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { ConsultationButton, PrimaryButton } from "@/components/PrimaryButton";
+import ContactModal from "@/components/ContactModal";
+import AnimatedSection from "@/components/AnimatedSection";
+import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import DestinationsSection from "@/components/DestinationsSection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import PartnerUniversitiesSection from "@/components/PartnerUniversitiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import TeamSection from "@/components/TeamSection";
+import ValuesSection from "@/components/ValuesSection";
+import StatsSection from "@/components/StatsSection";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  return (
+    <div className="min-h-screen bg-[#E5E0DA]">
+      <div id="home">
+        <HeroSection />
+      </div>
+      <div id="services">
+        <AnimatedSection>
+          <ServicesSection />
+        </AnimatedSection>
+      </div>
+      <div id="destinations">
+        <AnimatedSection>
+          <DestinationsSection />
+        </AnimatedSection>
+      </div>
+      <AnimatedSection>
+        <WhyChooseSection />
+      </AnimatedSection>
+      <div id="universities">
+        <AnimatedSection>
+          <PartnerUniversitiesSection />
+        </AnimatedSection>
+      </div>
+      <div id="testimonials">
+        <AnimatedSection>
+          <TestimonialsSection />
+        </AnimatedSection>
+      </div>
+      <div id="about">
+        <AnimatedSection>
+          <AboutSection />
+        </AnimatedSection>
+      </div>
+      <AnimatedSection>
+        <TeamSection />
+      </AnimatedSection>
+      <AnimatedSection>
+        <ValuesSection />
+      </AnimatedSection>
+      <AnimatedSection>
+        <StatsSection />
+      </AnimatedSection>
+
+      {/* Contact Section */}
+      <div id="contact">
+        <AnimatedSection className="py-16 sm:py-30" delay={0.7}>
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-normal mb-4 text-[#4A4643]">
+              Start Your International Education Journey
+            </h2>
+            <p className="text-sm text-[#8B8178] mb-10 max-w-2xl mx-auto">
+              Get expert guidance on university admissions, visa applications,
+              and career planning. Schedule a consultation with our education
+              advisors.
+            </p>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <PrimaryButton
+                onClick={() =>
+                  window.open("https://wa.me/1234567890", "_blank")
+                }
+                className="w-12 h-12 !p-0 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                  <path d="M11.894 1.108C6.226 1.108 1.614 5.719 1.614 11.387c0 1.868.5 3.682 1.448 5.272L1.391 22l5.439-1.644c1.592.948 3.406 1.447 5.273 1.447h.004c5.668 0 10.279-4.611 10.279-10.279S17.562 1.108 11.894 1.108z" />
+                </svg>
+              </PrimaryButton>
+              <PrimaryButton
+                onClick={() =>
+                  (window.location.href = "mailto:contact@airbone.com")
+                }
+                className="w-12 h-12 !p-0 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </PrimaryButton>
+            </div>
+            <ConsultationButton />
+          </div>
+        </AnimatedSection>
+      </div>
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 }
