@@ -1,8 +1,15 @@
 "use client";
 
 import { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { PrimaryButton } from "./PrimaryButton";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
+import { ConsultationButton } from "./PrimaryButton";
+import ContactButtons from "./ContactButtons";
 
 interface University {
   name: string;
@@ -32,9 +39,9 @@ export default function DestinationModal({
   topUniversities,
 }: DestinationModalProps) {
   return (
-    <Transition.Root show={isOpen} as={Fragment}>
+    <Transition show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -44,41 +51,27 @@ export default function DestinationModal({
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-        </Transition.Child>
+        </TransitionChild>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <Transition.Child
+        <div className="fixed inset-y-0 right-0 z-10 overflow-y-auto m-5 rounded-3xl text-[var(--color-primary)] ">
+          <div className="flex min-h-full">
+            <TransitionChild
               as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enter="transform transition ease-in-out duration-300"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transform transition ease-in-out duration-300"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl max-h-[90vh] overflow-y-auto">
-                <div className="bg-gradient-to-r from-indigo-600 via-blue-500 to-cyan-400 px-6 py-8 relative">
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <span className="text-6xl">{flag}</span>
-                        <Dialog.Title
-                          as="h3"
-                          className="text-3xl font-serif text-white font-bold"
-                        >
-                          Study in {name}
-                        </Dialog.Title>
-                      </div>
-                      <button
-                        type="button"
-                        className="text-white/80 hover:text-white transition-colors"
-                        onClick={onClose}
-                      >
+              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl">
+                <div className=" px-6 py-4 relative border-b border-dashed">
+                  <div className="relative z-10 flex flex-col">
+                    <div className="text-right w-full">
+                      <button type="button" className="" onClick={onClose}>
                         <span className="sr-only">Close</span>
                         <svg
-                          className="h-8 w-8"
+                          className="h-5 w-5"
                           fill="none"
                           viewBox="0 0 24 24"
                           strokeWidth="2"
@@ -92,113 +85,112 @@ export default function DestinationModal({
                         </svg>
                       </button>
                     </div>
-                    <p className="text-white/90 text-lg mt-4 max-w-3xl">
+                    <div className="flex justify-between">
+                      <div className="flex space-x-4 justify-center">
+                        <DialogTitle as="h3" className="text-xl font-bold">
+                          Study in {name}
+                        </DialogTitle>
+                        <span className="text-lg">{flag}</span>
+                      </div>
+                    </div>
+                    <p className="leading-relaxed mt-1 max-w-3xl">
                       {description}
                     </p>
                   </div>
                 </div>
-                <div className="bg-white px-6 py-8">
+                <div
+                  className="bg-white px-6 py-8 overflow-y-auto"
+                  style={{
+                    maxHeight: "calc(100vh - 200px)",
+                    paddingBottom: "100px",
+                  }}
+                >
                   <div className="max-w-5xl mx-auto">
-                    {/* Key Features */}
-                    <section className="mb-16">
-                      <h4 className="text-3xl font-bold text-center mb-8 text-gray-800">
-                        Why Study in {name}?
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {features.map((feature, index) => (
-                          <div
-                            key={index}
-                            className="bg-gray-50 p-6 rounded-xl shadow-md flex items-start"
-                          >
-                            <span className="text-indigo-500 text-2xl mr-4">
+                    {/* Features Section */}
+                    <div className="divide-y divide-gray-300">
+                      <section className="pb-8">
+                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                          Why Study in {name}?
+                        </h2>
+                        <div className="flex gap-3 flex-wrap">
+                          {features.map((feature, index) => (
+                            <div
+                              key={index}
+                              className="px-6 justify-center bg-[var(--color-primary)]/5 font- py-3 rounded-2xl flex items-start  "
+                            >
+                              {/* <span className="text-[var(--color-primary)] text-2xl mr-4">
                               ✓
-                            </span>
-                            <p className="text-gray-700">{feature}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
+                            </span> */}
+                              <p className="text-[var(--color-primary)]">
+                                {feature}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
 
-                    {/* Requirements */}
-                    <section className="mb-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-inner">
-                      <h4 className="text-3xl font-bold text-center mb-8 text-gray-800">
-                        Visa Requirements
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {requirements?.map((requirement, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center bg-white p-4 rounded-lg shadow-sm"
-                          >
-                            <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                              <span className="text-indigo-600 font-bold">
-                                {index + 1}
+                      {/* Requirements Section */}
+                      <section className="py-8">
+                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                          Visa Requirements
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {requirements?.map((requirement, index) => (
+                            <div
+                              key={index}
+                              className="flex items-center rounded-2xl transition-all duration-300 text-[var(--color-primary)]"
+                            >
+                              <div className="w-8 h-8 bg-[var(--color-primary)]/10 rounded-full flex items-center justify-center mr-4">
+                                <span className=" font-bold">{index + 1}</span>
+                              </div>
+                              <p className=" ">{requirement}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+
+                      {/* Universities Section */}
+                      <section className="pt-8">
+                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                          Top Universities
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {topUniversities.map((uni) => (
+                            <div
+                              key={uni.name}
+                              className="p-1 rounded-2xl transition-colors w-full"
+                            >
+                              <h5 className="font-bold text-[var(--color-primary)] mb-1">
+                                {uni.name}
+                              </h5>
+                              <span className="flex gap-3">
+                                <p className="text-xs text-[var(--color-secondary)] mb-1">
+                                  {uni.location}
+                                </p>
+                                <p className="text-xs text-indigo-600 font-medium">
+                                  {uni.ranking}
+                                </p>
                               </span>
                             </div>
-                            <p className="text-gray-700">{requirement}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-
-                    {/* Top Universities */}
-                    <section className="mb-16">
-                      <h4 className="text-3xl font-bold text-center mb-8 text-gray-800">
-                        Top Universities
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                        {topUniversities.map((uni) => (
-                          <div
-                            key={uni.name}
-                            className="bg-gray-50 p-6 rounded-xl text-center shadow-md"
-                          >
-                            <div className="text-indigo-600 font-bold text-lg mb-2">
-                              {uni.ranking}
-                            </div>
-                            <h5 className="font-semibold text-gray-800 mb-2">
-                              {uni.name}
-                            </h5>
-                            <p className="text-gray-600">{uni.location}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
+                          ))}
+                        </div>
+                      </section>
+                    </div>
 
                     {/* CTA Section */}
-                    <section className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white rounded-2xl p-12 mb-8 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDU2IDAgTCAwIDEwMCBNIDI4IDAgTCAtMjggMTAwIE0gODQgMCBMIDI4IDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50"></div>
-                      <div className="relative z-10">
-                        <h4 className="text-4xl font-bold text-center mb-6">
-                          Ready to Start Your Journey?
-                        </h4>
-                        <p className="text-xl mb-12 opacity-90 max-w-3xl mx-auto text-center leading-relaxed">
-                          Get expert guidance on studying in {name}. Our team
-                          will help you through every step of the process.
-                        </p>
-                        <div className="flex justify-center space-x-4">
-                          <PrimaryButton
-                            onClick={onClose}
-                            className="bg-white text-indigo-600 hover:bg-gray-50 hover:text-indigo-700 shadow-lg transform hover:scale-105 transition-all duration-300"
-                          >
-                            Book Free Consultation
-                          </PrimaryButton>
-                          <button
-                            type="button"
-                            className="px-6 py-3 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all duration-300 font-semibold"
-                            onClick={onClose}
-                          >
-                            Learn More
-                          </button>
-                        </div>
+                    <section className="absolute bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-10">
+                      <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
+                        <ContactButtons />
+                        <ConsultationButton />
                       </div>
                     </section>
                   </div>
                 </div>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }

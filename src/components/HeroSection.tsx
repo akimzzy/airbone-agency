@@ -23,7 +23,7 @@ const buttonDelay = paragraphDelay + 0.25; // Changed from 0.5 to 0.25 to start 
 
 export default function HeroSection() {
   return (
-    <AnimatedSection className="relative h-[92vh] flex items-center justify-end overflow-hidden flex-col px-4 sm:px-0 py-36">
+    <AnimatedSection className="relative h-[100vh] flex items-center justify-end overflow-hidden flex-col px-4 sm:px-0 py-36">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center max-w-7xl">
         <h1 className="font-damion text-4xl sm:text-5xl md:text-8xl font-normal mb-4 sm:mb-2 leading-tight tracking-tight text-[var(--color-primary)] flex flex-wrap justify-center gap-x-2">
           {words.map((word, index) => (

@@ -6,15 +6,22 @@ interface UniversityCardProps {
   name: string;
   country: string;
   image: string;
+  width?: string;
+  height?: string;
 }
 
 export default function UniversityCard({
   name,
   country,
   image,
+  width = "300px",
+  height = "300px",
 }: UniversityCardProps) {
   return (
-    <div className="min-w-[300px] h-[300px] relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div
+      style={{ width, height, minWidth: width }}
+      className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+    >
       <Image
         src={`${image}?auto=format&fit=crop&w=800&h=800&q=80`}
         alt={name}

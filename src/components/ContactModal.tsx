@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { PrimaryButton } from "./PrimaryButton";
+import ContactButtons from "./ContactButtons";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -45,10 +46,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             />
           </div>
           <div className="relative z-10 p-12 h-full flex flex-col justify-between text-white">
-            <h2 className="font-serif text-4xl">Schedule a consultation</h2>
-            <p className="opacity-80">
-              Fill in your details and we will contact you soon!
-            </p>
+            <div>
+              <h2 className="text-4xl mb-6 font-bold">
+                Schedule a consultation
+              </h2>
+              <p className="opacity-80 mb-8">
+                Fill in your details and we will contact you soon!
+              </p>
+              <ContactButtons />
+            </div>
           </div>
         </div>
 
