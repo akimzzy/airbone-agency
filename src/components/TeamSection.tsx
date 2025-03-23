@@ -39,7 +39,7 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 pb-0 bg-white">
       <div className="container mx-auto px-6">
         <SectionHeader
           title="Meet Our Team"
@@ -62,16 +62,16 @@ export default function TeamSection() {
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-[#4A4643] text-center mb-2">
+              <h3 className="text-xl font-semibold text-[var(--color-primary)] text-center mb-2">
                 {member.name}
               </h3>
               <p className="text-indigo-600 font-medium text-center mb-3">
                 {member.role}
               </p>
-              <p className="text-[#8B8178] text-center mb-4">
+              <p className="text-[var(--color-secondary)] text-center mb-4">
                 {member.description}
               </p>
-              <div className="text-sm text-[#8B8178] text-center">
+              <div className="text-sm text-[var(--color-secondary)] text-center">
                 <span className="font-medium">Specialization:</span>{" "}
                 {member.specialization}
               </div>

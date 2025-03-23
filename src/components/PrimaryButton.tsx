@@ -28,7 +28,7 @@ export function PrimaryButton({
       onClick={handleClick}
       className={`${
         !className?.includes("bg-") ? "bg-[#E5E0DA]" : ""
-      } text-[#4A4643] px-7 py-4 rounded-full font-semibold hover:bg-[#4A4643] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[#4A4643] ${className}`}
+      } text-[var(--color-primary)] px-7 py-4 rounded-full font-semibold hover:bg-[var(--color-primary)] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[var(--color-primary)] ${className}`}
     >
       {children}
     </button>

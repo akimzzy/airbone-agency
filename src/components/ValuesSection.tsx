@@ -44,7 +44,7 @@ const values = [
 
 export default function ValuesSection() {
   return (
-    <section className="py-24 bg-[#E5E0DA]">
+    <section className="py-24 pb-0">
       <div className="container mx-auto px-6">
         <SectionHeader
           title="Our Core Values"
@@ -60,10 +60,10 @@ export default function ValuesSection() {
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="text-4xl mb-4">{value.icon}</div>
-              <h3 className="text-xl font-semibold text-[#4A4643] mb-4">
+              <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-4">
                 {value.title}
               </h3>
-              <p className="text-[#8B8178] leading-relaxed">
+              <p className="text-[var(--color-secondary)] leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

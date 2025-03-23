@@ -28,10 +28,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg ${
+        isScrolled ? "shadow-sm" : ""
       }`}
     >
+      <div className="flex justify-center ">
+        <div className="bg-[var(--color-primary)] text-white text-xs p-3 rounded-bl-3xl rounded-br-3xl font-bold leading-relaxed px-8">
+          Airborne Educational Consult
+        </div>
+      </div>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Left section - Contact buttons */}
@@ -84,7 +89,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[#4A4643] hover:text-indigo-600 transition-colors font-medium"
+                className="text-[var(--color-primary)] hover:text-indigo-600 transition-colors font-normal"
               >
                 {link.label}
               </Link>
@@ -138,7 +143,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-[#4A4643] hover:text-indigo-600 transition-colors py-2"
+                className="block text-[var(--color-primary)] hover:text-indigo-600 transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

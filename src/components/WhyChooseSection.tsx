@@ -6,7 +6,7 @@ export default function WhyChooseSection() {
   return (
     <section className="pb-24 pt-10">
       <div className="container mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl md:text-3xl font-normal text-center mb-12 sm:mb-16 text-[#4A4643] px-2 sm:px-0">
+        <h2 className="text-2xl md:text-3xl font-normal text-center mb-12 sm:mb-16 text-[var(--color-primary)] px-2 sm:px-0">
           Why Choose These Destinations?
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">

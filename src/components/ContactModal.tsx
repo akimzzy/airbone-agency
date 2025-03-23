@@ -36,7 +36,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <div className="relative bg-white rounded-2xl w-full max-w-5xl m-4 shadow-2xl overflow-hidden flex">
         {/* Left side - Image */}
         <div className="w-2/5 relative hidden md:block">
-          <div className="absolute inset-0 bg-[#4A4643]">
+          <div className="absolute inset-0 bg-[var(--color-primary)]">
             <Image
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80"
               alt="Leather texture"
@@ -56,7 +56,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="flex-1 p-12">
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-[#4A4643] hover:text-[#8B8178] transition-colors"
+            className="absolute top-6 right-6 text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors"
           >
             ✕
           </button>
@@ -65,7 +65,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block font-medium text-[#4A4643] mb-2"
+                  className="block font-medium text-[var(--color-primary)] mb-2"
                 >
                   Full Name *
                 </label>
@@ -76,14 +76,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, fullName: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#8B8178] transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block font-medium text-[#4A4643] mb-2"
+                  className="block font-medium text-[var(--color-primary)] mb-2"
                 >
                   Email *
                 </label>
@@ -94,14 +94,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#8B8178] transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="phoneNumber"
-                  className="block font-medium text-[#4A4643] mb-2"
+                  className="block font-medium text-[var(--color-primary)] mb-2"
                 >
                   Phone number *
                 </label>
@@ -112,14 +112,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, phoneNumber: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#8B8178] transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="companyName"
-                  className="block font-medium text-[#4A4643] mb-2"
+                  className="block font-medium text-[var(--color-primary)] mb-2"
                 >
                   Company Name
                 </label>
@@ -130,14 +130,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, companyName: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#8B8178] transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                 />
               </div>
             </div>
             <div>
               <label
                 htmlFor="message"
-                className="block font-medium text-[#4A4643] mb-2"
+                className="block font-medium text-[var(--color-primary)] mb-2"
               >
                 Message
               </label>
@@ -148,18 +148,24 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#8B8178] transition-colors"
+                className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
               />
             </div>
             <div className="flex items-center">
               <input type="checkbox" id="terms" className="mr-2" required />
-              <label htmlFor="terms" className="text-[#4A4643]">
+              <label htmlFor="terms" className="text-[var(--color-primary)]">
                 I agree to the{" "}
-                <a href="#" className="text-[#8B8178] hover:underline">
+                <a
+                  href="#"
+                  className="text-[var(--color-secondary)] hover:underline"
+                >
                   Terms of use
                 </a>{" "}
                 and{" "}
-                <a href="#" className="text-[#8B8178] hover:underline">
+                <a
+                  href="#"
+                  className="text-[var(--color-secondary)] hover:underline"
+                >
                   Privacy Policy
                 </a>
               </label>

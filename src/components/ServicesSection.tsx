@@ -48,7 +48,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-30 bg-white">
+    <section className="py-20 sm:py-40 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <SectionHeader
@@ -67,17 +67,17 @@ export default function ServicesSection() {
               className="group bg-white/50 p-8 rounded-2xl hover:bg-white/70 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl text-center"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-4 text-[#4A4643]">
+              <h3 className="text-xl font-semibold mb-4 text-[var(--color-primary)]">
                 {service.title}
               </h3>
-              <p className="text-[#8B8178] mb-6 leading-relaxed">
+              <p className="text-[var(--color-secondary)] mb-6 leading-relaxed">
                 {service.description}
               </p>
               <div className="space-y-3">
                 {service.features.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-center text-[#8B8178] group-hover:text-[#4A4643] transition-colors duration-300"
+                    className="flex items-center justify-center text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors duration-300"
                   >
                     <span className="text-indigo-500 mr-2">✓</span>
                     {feature}

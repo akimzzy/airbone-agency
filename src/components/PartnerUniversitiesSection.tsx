@@ -48,7 +48,7 @@ export default function PartnerUniversitiesSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-30 bg-white">
+    <section className="py-20 sm:py-40 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         <SectionHeader
           title="Partner Universities"

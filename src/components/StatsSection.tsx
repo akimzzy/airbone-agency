@@ -35,7 +35,7 @@ export default function StatsSection() {
   const [, setIsVisible] = useState(false);
 
   return (
-    <section className="py-30 bg-white">
+    <section className="py-24 pb-0">
       <div className="container mx-auto px-6">
         <SectionHeader
           title="Our Impact in Numbers"
@@ -50,7 +50,7 @@ export default function StatsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               onViewportEnter={() => setIsVisible(true)}
-              className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-lg hover:bg-white/20 transition-all duration-300"
+              className="text-center p-6 rounded-2xl backdrop-blur-lg hover:bg-[var(--color-primary)]/90 bg-[var(--color-primary)] transition-all duration-300"
             >
               <div className="text-4xl mb-4">{stat.icon}</div>
               <div className="text-4xl font-bold mb-2">{stat.value}</div>

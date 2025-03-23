@@ -80,7 +80,7 @@ export default function DestinationCard({
         <div className="p-8 h-[36rem] flex flex-col justify-between">
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <span className="text-[#4A4643] font-semibold flex items-center gap-2">
+              <span className="text-[var(--color-primary)] font-semibold flex items-center gap-2">
                 {universities} Universities
                 <div className="text-2xl">{flag}</div>
               </span>
@@ -95,7 +95,7 @@ export default function DestinationCard({
             <div>
               <PrimaryButton
                 className={`w-10 h-10 !p-0 flex items-center justify-center group/btn ${
-                  isHovered ? "bg-[#4A4643] text-white" : ""
+                  isHovered ? "bg-[var(--color-primary)] text-white" : ""
                 }`}
                 onClick={() => {}}
               >
@@ -119,11 +119,13 @@ export default function DestinationCard({
           </div>
 
           <div className="flex flex-col text-center items-center">
-            <h3 className="text-xl font-semibold mb-1 text-[#4A4643]">
+            <h3 className="text-xl font-semibold mb-1 text-[var(--color-primary)]">
               {name}
             </h3>
 
-            <p className="text-[#8B8178] leading-relaxed mb-2">{description}</p>
+            <p className="text-[var(--color-secondary)] leading-relaxed mb-2">
+              {description}
+            </p>
             <span
               className={`text-indigo-600 text-xs transition-opacity duration-300 ${
                 isHovered ? "opacity-0 hidden" : "opacity-100 visible"
@@ -140,20 +142,20 @@ export default function DestinationCard({
                     : "opacity-0 max-h-0 overflow-hidden"
                 }`}
               >
-                <h4 className="text-[#4A4643] mb-2 text-lg">
+                <h4 className="text-[var(--color-primary)] mb-2 text-lg">
                   Top Universities
                 </h4>
                 <div className="flex flex-col gap-2">
                   {topUniversities?.slice(0, 3).map((uni) => (
                     <div
                       key={uni.name}
-                      className="bg-[#4A4643]/5 p-3 rounded-2xl hover:bg-[#4A4643]/10 transition-colors w-full"
+                      className="bg-[var(--color-primary)]/5 p-3 rounded-2xl hover:bg-[var(--color-primary)]/10 transition-colors w-full"
                     >
-                      <h5 className="font-bold text-[#4A4643] mb-1">
+                      <h5 className="font-bold text-[var(--color-primary)] mb-1">
                         {uni.name}
                       </h5>
                       <span className="flex gap-3 justify-center">
-                        <p className="text-xs text-[#8B8178] mb-1">
+                        <p className="text-xs text-[var(--color-secondary)] mb-1">
                           {uni.location}
                         </p>
                         <p className="text-xs text-indigo-600 font-medium">

@@ -24,11 +24,8 @@ const buttonDelay = paragraphDelay + 0.25; // Changed from 0.5 to 0.25 to start 
 export default function HeroSection() {
   return (
     <AnimatedSection className="relative h-[92vh] flex items-center justify-end overflow-hidden flex-col px-4 sm:px-0 py-36">
-      <div className="text-base md:text-lg max-w-2xl mx-auto font-bold leading-relaxed text-[#8B8178] mb-4 text-center px-4">
-        Airborne Educational Consult
-      </div>
       <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center max-w-7xl">
-        <h1 className="font-damion text-4xl sm:text-5xl md:text-8xl font-normal mb-4 sm:mb-2 leading-tight tracking-tight text-[#4A4643] flex flex-wrap justify-center gap-x-2">
+        <h1 className="font-damion text-4xl sm:text-5xl md:text-8xl font-normal mb-4 sm:mb-2 leading-tight tracking-tight text-[var(--color-primary)] flex flex-wrap justify-center gap-x-2">
           {words.map((word, index) => (
             <motion.span
               key={index}
@@ -49,7 +46,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: paragraphDelay, duration: 0.5 }}
-          className="text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed text-[#8B8178] font-semibold px-2 sm:px-0"
+          className="text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed text-[var(--color-secondary)] font-semibold px-2 sm:px-0"
         >
           Guiding students through admissions, visa processes, scholarships, and
           global opportunities with personalized support.

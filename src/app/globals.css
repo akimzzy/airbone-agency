@@ -2,8 +2,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* Base colors */
+  --background: #e5e0da;
   --foreground: #171717;
+
+  /* Brand colors */
+  --color-primary: #4a4643;
+  --color-secondary: #8b8178;
+
+  /* Background variations */
+  --bg-primary: #e5e0da;
+  --bg-white: #ffffff;
+  --bg-white-50: rgba(255, 255, 255, 0.5);
+  --bg-white-70: rgba(255, 255, 255, 0.7);
+  --bg-white-80: rgba(255, 255, 255, 0.8);
+
+  /* Accent colors */
+  --color-indigo: #6366f1;
+  --color-indigo-500: #6366f1;
+
+  /* Utility colors */
+  --color-scrollbar: rgba(74, 70, 67, 0.3);
 }
 
 @theme inline {

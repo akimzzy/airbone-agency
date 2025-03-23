@@ -45,7 +45,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-16 sm:py-30 bg-[#E5E0DA]">
+    <section className="py-20 sm:py-40 bg-[#E5E0DA]">
       <div className="container mx-auto px-6">
         <SectionHeader
           title="Student Success Stories"
@@ -68,16 +68,16 @@ export default function TestimonialsSection() {
                   className="rounded-full object-cover"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-[#4A4643] text-center mb-1">
+              <h3 className="text-lg font-semibold text-[var(--color-primary)] text-center mb-1">
                 {testimonial.name}
               </h3>
-              <p className="text-sm text-[#8B8178] text-center mb-4">
+              <p className="text-sm text-[var(--color-secondary)] text-center mb-4">
                 {testimonial.program} at {testimonial.university}
               </p>
-              <p className="text-[#4A4643] text-center italic mb-4">
+              <p className="text-[var(--color-primary)] text-center italic mb-4">
                 {`"${testimonial.quote}"`}
               </p>
-              <p className="text-sm text-[#8B8178] text-center">
+              <p className="text-sm text-[var(--color-secondary)] text-center">
                 Class of {testimonial.year}
               </p>
             </motion.div>
