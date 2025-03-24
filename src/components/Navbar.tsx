@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ConsultationButton, PrimaryButton } from "./PrimaryButton";
 import ContactButtons from "./ContactButtons";
@@ -24,6 +24,9 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
+  const [lastScrollPos, setLastScrollPos] = useState(0);
+  const timeoutRef = useRef(null);
+
   useEffect(() => {
     if (!isMobile || isMobileMenuOpen) {
       setIsVisible(true);
@@ -31,34 +34,27 @@ export default function Navbar() {
     }
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-      setLastActivityTime(Date.now());
-    };
+      const currentScrollPos = window.scrollY;
+      const isScrollingUp = currentScrollPos < lastScrollPos;
 
-    const handleMouseMove = () => {
-      setLastActivityTime(Date.now());
-    };
+      setIsVisible(isScrollingUp || currentScrollPos < 10);
+      setLastScrollPos(currentScrollPos);
 
-    const checkInactivity = () => {
-      const now = Date.now();
-      if (now - lastActivityTime > 2000) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
+      // Reset the timer on scroll
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      if (window.innerWidth < 768) {
+        timeoutRef.current = setTimeout(() => {
+          setIsVisible(false);
+        }, 2000);
       }
     };
 
-    const inactivityTimer = setInterval(checkInactivity, 200);
-
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
-      clearInterval(inactivityTimer);
-    };
-  }, [lastActivityTime, isMobile, isMobileMenuOpen]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollPos, isMobile, isMobileMenuOpen]);
 
   const navLinks = [
     { href: "/#home", label: "Home" },

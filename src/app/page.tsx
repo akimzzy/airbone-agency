@@ -9,10 +9,10 @@ import DestinationsSection from "@/components/DestinationsSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import PartnerUniversitiesSection from "@/components/PartnerUniversitiesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-// import AboutSection from "@/components/AboutSection";
-// import TeamSection from "@/components/TeamSection";
-// import ValuesSection from "@/components/ValuesSection";
-// import StatsSection from "@/components/StatsSection";
+import AboutSection from "@/components/AboutSection";
+import TeamSection from "@/components/TeamSection";
+import ValuesSection from "@/components/ValuesSection";
+import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
           <TestimonialsSection />
         </AnimatedSection>
       </div>
-      {/* <div className="py-20 sm:py-40 bg-white" id="about">
+      <div className="py-20 sm:py-40 bg-white" id="about">
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>
@@ -59,7 +59,7 @@ export default function Home() {
         <AnimatedSection>
           <StatsSection />
         </AnimatedSection>
-      </div> */}
+      </div>
 
       {/* Contact Section */}
       <div id="contact">
