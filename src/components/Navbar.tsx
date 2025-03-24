@@ -94,7 +94,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[var(--color-primary)] hover:text-indigo-600 transition-colors font-normal"
+                className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/60 transition-colors font-semibold"
               >
                 {link.label}
               </Link>
@@ -148,7 +148,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[var(--color-primary)] hover:text-indigo-600 transition-colors py-2 text-center"
+                className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/60 transition-colors py-2 text-center font-semibold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
