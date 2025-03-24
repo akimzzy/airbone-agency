@@ -14,8 +14,8 @@ export default function UniversityCard({
   name,
   country,
   image,
-  width = "300px",
-  height = "300px",
+  width = "250px",
+  height = "250px",
 }: UniversityCardProps) {
   return (
     <div
@@ -30,8 +30,8 @@ export default function UniversityCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 transition-opacity duration-300"></div>
       <div className="absolute inset-0 p-6 flex flex-col items-center justify-end text-center">
-        <h3 className="text-xl font-semibold text-white mb-2">{name}</h3>
-        <p className="text-gray-200">{country}</p>
+        <h3 className="text-lg font-semibold text-white mb-1">{name}</h3>
+        <p className="text-sm text-gray-200">{country}</p>
       </div>
     </div>
   );

@@ -1,60 +1,64 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ConsultationButton, PrimaryButton } from "./PrimaryButton";
 import ContactButtons from "./ContactButtons";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastActivityTime, setLastActivityTime] = useState(Date.now());
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
-
-  const [lastScrollPos, setLastScrollPos] = useState(0);
-  const timeoutRef = useRef(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [lastInteractionTime, setLastInteractionTime] = useState(Date.now());
 
   useEffect(() => {
-    if (!isMobile || isMobileMenuOpen) {
-      setIsVisible(true);
-      return;
-    }
+    let timeoutId: NodeJS.Timeout;
 
     const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isScrollingUp = currentScrollPos < lastScrollPos;
-
-      setIsVisible(isScrollingUp || currentScrollPos < 10);
-      setLastScrollPos(currentScrollPos);
-
-      // Reset the timer on scroll
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
+      const currentScrollY = window.scrollY;
       if (window.innerWidth < 768) {
-        timeoutRef.current = setTimeout(() => {
-          setIsVisible(false);
-        }, 2000);
+        setIsVisible(
+          lastScrollY > currentScrollY ||
+            currentScrollY < 50 ||
+            isMobileMenuOpen
+        );
+      } else {
+        setIsVisible(true);
       }
+      setLastScrollY(currentScrollY);
+      setLastInteractionTime(Date.now());
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (!isMobileMenuOpen && window.innerWidth < 768) {
+          setIsVisible(false);
+        }
+      }, 2000);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollPos, isMobile, isMobileMenuOpen]);
+    const handleTouchStart = () => {
+      setIsVisible(true);
+      setLastInteractionTime(Date.now());
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (!isMobileMenuOpen && window.innerWidth < 768) {
+          setIsVisible(false);
+        }
+      }, 2000);
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("touchstart", handleTouchStart);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("touchstart", handleTouchStart);
+      }
+      clearTimeout(timeoutId);
+    };
+  }, [lastScrollY, isMobileMenuOpen]);
 
   const navLinks = [
     { href: "/#home", label: "Home" },
@@ -67,11 +71,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg ${
-        isScrolled ? "shadow-sm" : "shadow-sm"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 shadow-sm backdrop-blur-lg">
       <div className="flex justify-center">
         <div className="bg-[var(--color-primary)] text-white text-xs p-3 rounded-bl-3xl rounded-br-3xl font-bold leading-relaxed px-8">
           Airborne Educational Consult
@@ -79,9 +79,9 @@ export default function Navbar() {
       </div>
       <div
         className={`container mx-auto px-6 transition-all duration-300 ${
-          isVisible
-            ? "opacity-100 max-h-screen"
-            : "opacity-0 max-h-0 overflow-hidden"
+          !isVisible && !isMobileMenuOpen
+            ? "max-h-0 h-0 opacity-0 pointer-events-none overflow-hidden"
+            : "max-h-[1000px] opacity-100"
         }`}
       >
         <div className="flex items-center justify-between h-20">
@@ -139,10 +139,8 @@ export default function Navbar() {
 
         {/* Mobile navigation */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen
-              ? "max-h-[30rem] opacity-100 py-4 pb-8"
-              : "max-h-0 opacity-0"
+          className={`md:hidden ${
+            isMobileMenuOpen ? "block py-4 pb-8" : "hidden"
           }`}
         >
           <div className="pb-8 grid grid-cols-2 gap-4">

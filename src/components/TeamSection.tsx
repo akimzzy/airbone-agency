@@ -40,7 +40,7 @@ const team = [
 export default function TeamSection() {
   return (
     <section className="py-24 pb-0 bg-white">
-      <div className="container mx-auto px-6">
+      <div className="container md:mx-auto px-8">
         <SectionHeader
           title="Meet Our Team"
           description="Experienced professionals dedicated to helping you achieve your educational goals"
