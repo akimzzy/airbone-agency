@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from "react";
 import ContactModal from "@/components/ContactModal";
 
 interface ContactModalContextType {
-  openContactModal: () => void;
+  openContactModal: (country?: string) => void;
   closeContactModal: () => void;
 }
 
@@ -18,8 +18,12 @@ export function ContactModalProvider({
   children: React.ReactNode;
 }) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<string | undefined>();
 
-  const openContactModal = () => setIsContactModalOpen(true);
+  const openContactModal = (country?: string) => {
+    setSelectedCountry(country);
+    setIsContactModalOpen(true);
+  };
   const closeContactModal = () => setIsContactModalOpen(false);
 
   return (
@@ -27,7 +31,11 @@ export function ContactModalProvider({
       value={{ openContactModal, closeContactModal }}
     >
       {children}
-      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={closeContactModal}
+        selectedCountry={selectedCountry}
+      />
     </ContactModalContext.Provider>
   );
 }

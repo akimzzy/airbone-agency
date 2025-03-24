@@ -37,16 +37,18 @@ export function PrimaryButton({
 
 interface ConsultationButtonProps {
   className?: string;
+  country?: string;
 }
 
 export function ConsultationButton({
   className = "",
+  country,
 }: ConsultationButtonProps) {
   const { openContactModal } = useContactModal();
 
   return (
     <PrimaryButton
-      onClick={openContactModal}
+      onClick={() => openContactModal(country)}
       className={`px-6 py-2 rounded-full hover:scale-105 ${className}`}
     >
       Book Consultation

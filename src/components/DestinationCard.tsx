@@ -42,6 +42,26 @@ export default function DestinationCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsHovered(true);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,12 +92,12 @@ export default function DestinationCard({
     <>
       <div
         ref={cardRef}
-        className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white/95 hover:via-white/85 hover:to-white/75 rounded-2xl shadow-lg transition-all overflow-hidden cursor-pointer transform hover:-translate-y-1 w-[400px] min-w-[400px]"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white/95 hover:via-white/85 hover:to-white/75 rounded-2xl shadow-lg transition-all overflow-hidden cursor-pointer transform hover:-translate-y-1 w-[350px] min-w-[350px]"
+        onMouseEnter={() => !isMobile && setIsHovered(true)}
+        onMouseLeave={() => !isMobile && setIsHovered(false)}
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="p-8 h-[36rem] flex flex-col justify-between">
+        <div className="p-8 h-[33rem] flex flex-col justify-between">
           <div className="flex justify-between">
             <div className="flex flex-col">
               <span className="text-[var(--color-primary)] font-semibold flex items-center gap-2">

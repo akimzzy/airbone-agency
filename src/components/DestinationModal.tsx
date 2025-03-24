@@ -50,7 +50,7 @@ export default function DestinationModal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity" />
         </TransitionChild>
 
         <div className="fixed inset-y-0 right-0 z-10 overflow-y-auto m-5 rounded-3xl text-[var(--color-primary)] ">
@@ -107,9 +107,9 @@ export default function DestinationModal({
                 >
                   <div className="max-w-5xl mx-auto">
                     {/* Features Section */}
-                    <div className="divide-y divide-gray-300">
-                      <section className="pb-8">
-                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                    <div className="divide-y divide-gray-200">
+                      <section className="pb-6">
+                        <h2 className="text-lg font-bold mb-6 text-[var(--color-primary)]">
                           Why Study in {name}?
                         </h2>
                         <div className="flex gap-3 flex-wrap">
@@ -130,8 +130,8 @@ export default function DestinationModal({
                       </section>
 
                       {/* Requirements Section */}
-                      <section className="py-8">
-                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                      <section className="py-6">
+                        <h2 className="text-lg font-bold mb-6 text-[var(--color-primary)]">
                           Visa Requirements
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -150,8 +150,8 @@ export default function DestinationModal({
                       </section>
 
                       {/* Universities Section */}
-                      <section className="pt-8">
-                        <h2 className="text-lg md:text-xl font-bold mb-8 text-[var(--color-primary)]">
+                      <section className="pt-6">
+                        <h2 className="text-lg font-bold mb-6 text-[var(--color-primary)]">
                           Top Universities
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -181,7 +181,7 @@ export default function DestinationModal({
                     <section className="absolute bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-10">
                       <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
                         <ContactButtons />
-                        <ConsultationButton />
+                        <ConsultationButton country={name} />
                       </div>
                     </section>
                   </div>

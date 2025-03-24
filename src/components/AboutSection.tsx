@@ -7,7 +7,7 @@ import SectionHeader from "./SectionHeader";
 export default function AboutSection() {
   return (
     <section className="">
-      <div className="container mx-auto px-6">
+      <div className="container md:mx-auto px-8">
         <SectionHeader
           title="About Us"
           description="Dedicated to helping students achieve their international education goals"

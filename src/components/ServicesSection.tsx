@@ -64,7 +64,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="group bg-white/50 p-8 rounded-2xl hover:bg-white/70 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl text-center"
+              className="group bg-white/50 p-8 rounded-2xl hover:bg-white/70 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl text-center border"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
               <h3 className="text-xl font-semibold mb-4 text-[var(--color-primary)]">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { PrimaryButton } from "./PrimaryButton";
 import ContactButtons from "./ContactButtons";
@@ -8,16 +8,30 @@ import ContactButtons from "./ContactButtons";
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  selectedCountry?: string;
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export default function ContactModal({
+  isOpen,
+  onClose,
+  selectedCountry,
+}: ContactModalProps) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phoneNumber: "",
-    companyName: "",
+    country: selectedCountry || "",
     message: "",
   });
+
+  useEffect(() => {
+    if (selectedCountry) {
+      setFormData((prev) => ({
+        ...prev,
+        country: selectedCountry,
+      }));
+    }
+  }, [selectedCountry]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +43,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center text-[var(--color-primary)]/70">
       <div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
@@ -42,18 +56,22 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80"
               alt="Leather texture"
               fill
-              className="object-cover opacity-80"
+              className="object-cover opacity-30"
             />
           </div>
           <div className="relative z-10 p-12 h-full flex flex-col justify-between text-white">
-            <div>
-              <h2 className="text-4xl mb-6 font-bold">
-                Schedule a consultation
-              </h2>
-              <p className="opacity-80 mb-8">
-                Fill in your details and we will contact you soon!
-              </p>
-              <ContactButtons />
+            <div className="flex flex-col h-full">
+              <div>
+                <h2 className="text-4xl mb-6 font-bold">
+                  Schedule a consultation
+                </h2>
+                <p className="mb-12">
+                  Fill in your details and we will contact you soon!
+                </p>
+              </div>
+              <div className="mt-auto">
+                <ContactButtons />
+              </div>
             </div>
           </div>
         </div>
@@ -124,20 +142,32 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
               <div>
                 <label
-                  htmlFor="companyName"
+                  htmlFor="country"
                   className="block font-medium text-[var(--color-primary)] mb-2"
                 >
-                  Company Name
+                  Destination Country *
                 </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  value={formData.companyName}
+                <select
+                  id="country"
+                  value={formData.country}
                   onChange={(e) =>
-                    setFormData({ ...formData, companyName: e.target.value })
+                    setFormData({ ...formData, country: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
-                />
+                  required
+                >
+                  <option value="">Select a country</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Germany">Germany</option>
+                  <option value="France">France</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Italy">Italy</option>
+                </select>
               </div>
             </div>
             <div>

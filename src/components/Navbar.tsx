@@ -8,14 +8,57 @@ import ContactButtons from "./ContactButtons";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastActivityTime, setLastActivityTime] = useState(Date.now());
+
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile || isMobileMenuOpen) {
+      setIsVisible(true);
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      setLastActivityTime(Date.now());
     };
+
+    const handleMouseMove = () => {
+      setLastActivityTime(Date.now());
+    };
+
+    const checkInactivity = () => {
+      const now = Date.now();
+      if (now - lastActivityTime > 2000) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    const inactivityTimer = setInterval(checkInactivity, 200);
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearInterval(inactivityTimer);
+    };
+  }, [lastActivityTime, isMobile, isMobileMenuOpen]);
 
   const navLinks = [
     { href: "/#home", label: "Home" },
@@ -30,15 +73,21 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg ${
-        isScrolled ? "shadow-sm" : ""
+        isScrolled ? "shadow-sm" : "shadow-sm"
       }`}
     >
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <div className="bg-[var(--color-primary)] text-white text-xs p-3 rounded-bl-3xl rounded-br-3xl font-bold leading-relaxed px-8">
           Airborne Educational Consult
         </div>
       </div>
-      <div className="container mx-auto px-6">
+      <div
+        className={`container mx-auto px-6 transition-all duration-300 ${
+          isVisible
+            ? "opacity-100 max-h-screen"
+            : "opacity-0 max-h-0 overflow-hidden"
+        }`}
+      >
         <div className="flex items-center justify-between h-20">
           {/* Left section - Contact buttons */}
           <ContactButtons />
@@ -64,7 +113,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors text-[var(--color-primary)]"
             aria-label="Toggle mobile menu"
           >
             <svg
@@ -95,22 +144,24 @@ export default function Navbar() {
         {/* Mobile navigation */}
         <div
           className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMobileMenuOpen
+              ? "max-h-[30rem] opacity-100 py-4 pb-8"
+              : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-4 space-y-4">
+          <div className="pb-8 grid grid-cols-2 gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-[var(--color-primary)] hover:text-indigo-600 transition-colors py-2"
+                className="text-[var(--color-primary)] hover:text-indigo-600 transition-colors py-2 text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <ConsultationButton className="w-full justify-center" />
           </div>
+          <ConsultationButton className="w-full justify-center" />
         </div>
       </div>
     </nav>

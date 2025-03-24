@@ -205,7 +205,7 @@ export default function DestinationsSection() {
               const container = document.querySelector(".destinations-scroll");
               if (container) container.scrollLeft -= 400;
             }}
-            className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
+            className={`flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
               isScrollStart ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
@@ -228,7 +228,7 @@ export default function DestinationsSection() {
               const container = document.querySelector(".destinations-scroll");
               if (container) container.scrollLeft += 400;
             }}
-            className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
+            className={`flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
               isScrollEnd ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
@@ -247,7 +247,7 @@ export default function DestinationsSection() {
             </svg>
           </button>
           <div
-            className="flex overflow-x-auto py-8 gap-4 sm:gap-6 md:gap-8 snap-x snap-mandatory hide-scrollbar destinations-scroll scroll-smooth"
+            className="flex overflow-x-auto pb-8 gap-4 sm:gap-6 md:gap-8 snap-x snap-mandatory hide-scrollbar destinations-scroll scroll-smooth"
             onScroll={handleScroll}
           >
             {destinations.map((destination) => (
