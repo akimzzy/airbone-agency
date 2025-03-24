@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [lastInteractionTime, setLastInteractionTime] = useState(Date.now());
+  const [, setLastInteractionTime] = useState(Date.now());
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
