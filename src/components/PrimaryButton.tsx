@@ -28,7 +28,7 @@ export function PrimaryButton({
       onClick={handleClick}
       className={`${
         !className?.includes("bg-") ? "bg-[#E5E0DA]" : ""
-      } text-[var(--color-primary)] px-4 sm:px-7 py-2 sm:py-4 text-sm sm:text-base rounded-full font-semibold hover:bg-[var(--color-primary)] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[var(--color-primary)] ${className}`}
+      } text-[var(--color-primary)] px-7 py-4 rounded-full font-semibold hover:bg-[var(--color-primary)] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[var(--color-primary)] ${className}`}
     >
       {children}
     </button>
@@ -49,7 +49,7 @@ export function ConsultationButton({
   return (
     <PrimaryButton
       onClick={() => openContactModal(country)}
-      className={`px-4 sm:px-6 py-2 rounded-full hover:scale-105 ${className}`}
+      className={`px-6 py-2 rounded-full hover:scale-105 ${className}`}
     >
       Book Consultation
     </PrimaryButton>
