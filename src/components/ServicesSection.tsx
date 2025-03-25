@@ -25,7 +25,7 @@ const services = [
     icon: "📋",
     features: [
       "Document preparation guidance",
-      "Visa interview coaching",
+      "Visitor or Tourist visa",
       "Application timeline planning",
       "Status tracking support",
     ],

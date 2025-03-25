@@ -178,9 +178,9 @@ export default function DestinationCard({
                         <p className="text-xs text-[var(--color-secondary)] mb-1">
                           {uni.location}
                         </p>
-                        <p className="text-xs text-indigo-600 font-medium">
+                        {/* <p className="text-xs text-indigo-600 font-medium">
                           {uni.ranking}
-                        </p>
+                        </p> */}
                       </span>
                     </div>
                   ))}
