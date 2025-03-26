@@ -54,7 +54,7 @@ export default function DestinationModal({
         </TransitionChild>
 
         <div className="fixed inset-y-0 right-0 z-10 overflow-hidden m-1 md:m-5 rounded-3xl text-[var(--color-primary)]">
-          <div className="flex min-h-[80vh] md:min-h-screen">
+          <div className="flex min-h-screen">
             <TransitionChild
               as={Fragment}
               enter="transform transition ease-in-out duration-300"
