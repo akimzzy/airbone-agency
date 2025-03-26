@@ -8,8 +8,8 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { ConsultationButton } from "./PrimaryButton";
-import ContactButtons from "./ContactButtons";
+// import { ConsultationButton } from "./PrimaryButton";
+// import ContactButtons from "./ContactButtons";
 
 interface University {
   name: string;
@@ -72,7 +72,7 @@ export default function DestinationModal({
                         <button type="button" className="" onClick={onClose}>
                           <span className="sr-only">Close</span>
                           <svg
-                            className="h-5 w-5"
+                            className="h-6 w-6"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="2"
@@ -178,12 +178,12 @@ export default function DestinationModal({
                     </div>
                   </div>
                   {/* CTA Section */}
-                  <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+                  {/* <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
                     <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
                       <ContactButtons />
                       <ConsultationButton country={name} />
                     </div>
-                  </section>
+                  </section> */}
                 </div>
               </DialogPanel>
             </TransitionChild>
