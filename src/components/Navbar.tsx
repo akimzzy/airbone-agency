@@ -71,7 +71,11 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 shadow-sm backdrop-blur-lg">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 shadow-sm ${
+        !isMobileMenuOpen ? "backdrop-blur-lg" : "bg-[#E5E0DA]"
+      }`}
+    >
       <div className="flex justify-center">
         <div className="bg-[var(--color-primary)] text-white text-xs p-3 rounded-bl-3xl rounded-br-3xl font-bold leading-relaxed px-8">
           Airborne Educational Consult

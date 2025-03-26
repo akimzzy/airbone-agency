@@ -53,7 +53,7 @@ export default function DestinationModal({
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity" />
         </TransitionChild>
 
-        <div className="fixed inset-y-0 right-0 z-10 overflow-hidden m-1 md:m-5 rounded-3xl text-[var(--color-primary)]">
+        <div className="fixed inset-y-0 right-0 z-10 overflow-hidden m-1 md:m-5 sm:rounded-3xl text-[var(--color-primary)]">
           <div className="flex min-h-screen">
             <TransitionChild
               as={Fragment}
@@ -64,7 +64,7 @@ export default function DestinationModal({
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))] bg-amber-300">
+              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all sm:rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
                 <div className="flex flex-col h-full">
                   <div className="px-6 py-4 relative border-b border-dashed">
                     <div className="relative z-10 flex flex-col">
@@ -86,7 +86,7 @@ export default function DestinationModal({
                           </svg>
                         </button>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex justify-between -mt-4">
                         <div className="flex space-x-4 justify-center">
                           <DialogTitle as="h3" className="text-xl font-bold">
                             Study in {name}
@@ -177,7 +177,7 @@ export default function DestinationModal({
                       </div>
                     </div>
                     {/* CTA Section */}
-                    <section className=" bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+                    <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
                       <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
                         <ContactButtons />
                         <ConsultationButton country={name} />
