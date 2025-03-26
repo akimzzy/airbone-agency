@@ -8,8 +8,8 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-// import { ConsultationButton } from "./PrimaryButton";
-// import ContactButtons from "./ContactButtons";
+import { ConsultationButton } from "./PrimaryButton";
+import ContactButtons from "./ContactButtons";
 
 interface University {
   name: string;
@@ -64,7 +64,7 @@ export default function DestinationModal({
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
+              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))] bg-amber-300">
                 <div className="flex flex-col h-full">
                   <div className="px-6 py-4 relative border-b border-dashed">
                     <div className="relative z-10 flex flex-col">
@@ -176,14 +176,14 @@ export default function DestinationModal({
                         </div>
                       </div>
                     </div>
+                    {/* CTA Section */}
+                    <section className=" bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+                      <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
+                        <ContactButtons />
+                        <ConsultationButton country={name} />
+                      </div>
+                    </section>
                   </div>
-                  {/* CTA Section */}
-                  {/* <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
-                    <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
-                      <ContactButtons />
-                      <ConsultationButton country={name} />
-                    </div>
-                  </section> */}
                 </div>
               </DialogPanel>
             </TransitionChild>
