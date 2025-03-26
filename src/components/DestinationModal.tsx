@@ -64,7 +64,7 @@ export default function DestinationModal({
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(90vh-2.5rem-env(safe-area-inset-bottom))] md:h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
+              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
                 <div className="px-6 py-4 relative border-b border-dashed">
                   <div className="relative z-10 flex flex-col">
                     <div className="text-right w-full">
