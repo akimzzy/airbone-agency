@@ -38,7 +38,7 @@ export default function DestinationCard({
   topUniversities,
   requirements,
   onScroll,
-}: DestinationCardProps) {
+}: Readonly<DestinationCardProps>) {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -92,7 +92,7 @@ export default function DestinationCard({
     <>
       <div
         ref={cardRef}
-        className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white/95 hover:via-white/85 hover:to-white/75 rounded-2xl shadow-lg transition-all overflow-hidden cursor-pointer transform hover:-translate-y-1 w-[350px] min-w-[350px]"
+        className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white hover:via-white hover:to-white rounded-2xl shadow-lg transition-all cursor-pointer overflow-hidde w-[350px] min-w-[350px]"
         onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => !isMobile && setIsHovered(false)}
         onClick={() => setIsModalOpen(true)}

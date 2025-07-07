@@ -37,7 +37,7 @@ export default function DestinationModal({
   features,
   requirements,
   topUniversities,
-}: DestinationModalProps) {
+}: Readonly<DestinationModalProps>) {
   return (
     <Transition show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -68,11 +68,15 @@ export default function DestinationModal({
                 <div className="flex flex-col h-full">
                   <div className="px-6 py-4 relative border-b border-dashed">
                     <div className="relative z-10 flex flex-col">
-                      <div className="text-right w-full">
-                        <button type="button" className="" onClick={onClose}>
-                          <span className="sr-only">Close</span>
+                      <div className="text-right w-full flex justify-end ">
+                        <button
+                          type="button"
+                          className="cursor-pointer flex items-center text-xs gap-0.5 pb-2"
+                          onClick={onClose}
+                        >
+                          <span className="">Close</span>
                           <svg
-                            className="h-6 w-6"
+                            className="h-4 w-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="2"
@@ -88,33 +92,31 @@ export default function DestinationModal({
                       </div>
                       <div className="flex justify-between -mt-4">
                         <div className="flex space-x-4 justify-center">
-                          <DialogTitle as="h3" className="text-xl font-bold">
+                          <DialogTitle as="h3" className="text-lg font-bold">
                             Study in {name}
                           </DialogTitle>
                           <span className="text-lg">{flag}</span>
                         </div>
                       </div>
-                      <p className="leading-relaxed mt-1 max-w-3xl">
-                        {description}
-                      </p>
+                      <p className="max-w-3xl text-xs">{description}</p>
                     </div>
                   </div>
                   <div className="flex-1 overflow-y-auto bg-white pb-[calc(5rem+env(safe-area-inset-bottom))]">
-                    <div className="px-6 py-8">
+                    <div className="p-4">
                       <div className="max-w-5xl mx-auto">
                         {/* Features Section */}
                         <div className="divide-y divide-gray-200">
-                          <section className="pb-6">
-                            <h2 className="text-lg font-bold mb-6 text-[var(--color-primary)]">
+                          <section className="pb-6 pt-2">
+                            <h2 className="text-base font-bold mb-3 text-[var(--color-primary)]">
                               Why Study in {name}?
                             </h2>
                             <div className="flex gap-3 flex-wrap">
-                              {features.map((feature, index) => (
+                              {features.map((feature) => (
                                 <div
-                                  key={index}
+                                  key={feature}
                                   className="px-6 justify-center bg-[var(--color-primary)]/5 font- py-3 rounded-2xl flex items-start"
                                 >
-                                  <p className="text-[var(--color-primary)]">
+                                  <p className="text-[var(--color-primary)] text-xs">
                                     {feature}
                                   </p>
                                 </div>
@@ -124,8 +126,8 @@ export default function DestinationModal({
 
                           {/* Requirements Section */}
                           <section className="py-6">
-                            <div className="mb-6 space-y-1">
-                              <h2 className="text-lg font-bold text-[var(--color-primary)]">
+                            <div className="mb-4">
+                              <h2 className="text-base font-bold text-[var(--color-primary)]">
                                 Visa Requirements
                               </h2>
                               <p className="text-red-600 text-xs">
@@ -136,8 +138,8 @@ export default function DestinationModal({
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               {requirements?.map((requirement, index) => (
                                 <div
-                                  key={index}
-                                  className="flex items-center rounded-2xl transition-all duration-300 text-[var(--color-primary)]"
+                                  key={requirement}
+                                  className="flex items-center rounded-2xl transition-all duration-300 text-[var(--color-primary)] text-xs"
                                 >
                                   <div className="w-8 h-8 bg-[var(--color-primary)]/10 rounded-full flex items-center justify-center mr-4">
                                     <span className=" font-bold">
@@ -151,8 +153,8 @@ export default function DestinationModal({
                           </section>
 
                           {/* Universities Section */}
-                          <section className="pt-6">
-                            <h2 className="text-lg font-bold mb-6 text-[var(--color-primary)]">
+                          <section className="py-6">
+                            <h2 className="text-base font-bold mb-3 text-[var(--color-primary)]">
                               Top Universities
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -161,11 +163,11 @@ export default function DestinationModal({
                                   key={uni.name}
                                   className="p-1 rounded-2xl transition-colors w-full"
                                 >
-                                  <h5 className="font-bold text-[var(--color-primary)] mb-1">
+                                  <h5 className="font-medium text-sm text-[var(--color-primary)]">
                                     {uni.name}
                                   </h5>
-                                  <span className="flex gap-3">
-                                    <p className="text-xs text-[var(--color-secondary)] mb-1">
+                                  <span className="flex">
+                                    <p className="text-xs text-[var(--color-secondary)]">
                                       {uni.location}
                                     </p>
                                   </span>
