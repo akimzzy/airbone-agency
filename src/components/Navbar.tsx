@@ -77,7 +77,7 @@ export default function Navbar() {
       }`}
     >
       <div className="flex justify-center">
-        <div className="bg-[var(--color-primary)] text-white text-xs p-3 rounded-bl-3xl rounded-br-3xl font-bold leading-relaxed px-8">
+        <div className="bg-[var(--color-primary)] text-white text-[10px] py-2 rounded-b-2xl font-bold leading-relaxed px-6">
           Airborne Educational Consult
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function Navbar() {
             : "max-h-[1000px] opacity-100"
         }`}
       >
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 text-xs">
           {/* Left section - Contact buttons */}
           <ContactButtons />
 

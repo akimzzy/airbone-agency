@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SectionHeader from "./SectionHeader";
 
 const values = [
   {
@@ -44,26 +43,44 @@ const values = [
 
 export default function ValuesSection() {
   return (
-    <section className="py-24 pb-0">
+    <section className="pt-24">
       <div className="container mx-auto px-6">
-        <SectionHeader
-          title="Our Core Values"
-          description="Guided by principles that ensure excellence in educational consulting"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {values.map((value, index) => (
+        <h2 className="text-2xl font-normal text-center mb-4 text-[var(--color-primary)]">
+          Our Core Values
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-x md:divide-y-0 mt-4 border-b">
+          {[values[0], values[1], values[2]].map((value, index) => (
             <motion.div
               key={value.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white p-8 hover:shadow-xl transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{value.icon}</div>
-              <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-4">
+              <h3 className="text-lg font-semibold text-[var(--color-primary)] mb-1">
                 {value.title}
               </h3>
-              <p className="text-[var(--color-secondary)] leading-relaxed">
+              <p className="text-[var(--color-secondary)] leading-relaxed text-xs">
+                {value.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-x md:divide-y-0">
+          {[values[3], values[4], values[5]].map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white  p-8 hover:shadow-xl transition-all duration-300"
+            >
+              {/* <div className="text-4xl mb-4">{value.icon}</div> */}
+              <h3 className="text-lg font-semibold text-[var(--color-primary)] mb-1">
+                {value.title}
+              </h3>
+              <p className="text-[var(--color-secondary)] leading-relaxed text-xs">
                 {value.description}
               </p>
             </motion.div>

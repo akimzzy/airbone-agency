@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 
 const testimonials = [
@@ -46,40 +45,27 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section className="py-20 sm:py-40 bg-[#E5E0DA]">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-10">
         <SectionHeader
           title="Student Success Stories"
           description="Read inspiring stories of students who achieved their academic dreams and built successful careers through our guidance"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="p-8 border border-dashed border-[var(--color-primary)]/70"
             >
-              <div className="relative w-20 h-20 mx-auto mb-4">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  fill
-                  className="rounded-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[var(--color-primary)] text-center mb-1">
+              <p className="text-[var(--color-primary)] text-base mb-2 font-semibold">
+                {`${testimonial.quote}`}
+              </p>
+
+              <h3 className="text-sm text-[var(--color-primary)]/70">
                 {testimonial.name}
               </h3>
-              <p className="text-sm text-[var(--color-secondary)] text-center mb-4">
-                {testimonial.program} at {testimonial.university}
-              </p>
-              <p className="text-[var(--color-primary)] text-center italic mb-4">
-                {`"${testimonial.quote}"`}
-              </p>
-              <p className="text-sm text-[var(--color-secondary)] text-center">
-                Class of {testimonial.year}
-              </p>
             </motion.div>
           ))}
         </div>

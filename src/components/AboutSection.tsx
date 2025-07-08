@@ -30,49 +30,49 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6 over"
+            className="p-8"
           >
-            <h3 className="text-2xl font-semibold text-[var(--color-primary)]">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">
               Your Journey to Global Education Starts Here
             </h3>
-            <p className="text-[var(--color-secondary)] leading-relaxed">
+            <p className="text-[var(--color-secondary)] leading-relaxed text-xs">
               At Airborne Educational Consult, we understand that pursuing
               international education is a significant life decision. Our team
               of experienced consultants is committed to providing personalized
               guidance and support throughout your educational journey.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <span className="text-indigo-500 text-xl">✓</span>
+            <div className="space-y-6 mt-8">
+              <div className="flex gap-4 items-center">
+                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Expert Guidance
                   </h4>
-                  <p className="text-[var(--color-secondary)]">
+                  <p className="text-[var(--color-secondary)] text-xs">
                     Our consultants have years of experience in international
                     education and admissions processes.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <span className="text-indigo-500 text-xl">✓</span>
+              <div className="flex gap-4 items-center">
+                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Personalized Approach
                   </h4>
-                  <p className="text-[var(--color-secondary)]">
+                  <p className="text-[var(--color-secondary)] text-xs">
                     We tailor our services to match your unique goals,
                     preferences, and academic background.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <span className="text-indigo-500 text-xl">✓</span>
+              <div className="flex gap-4 items-center">
+                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Comprehensive Support
                   </h4>
-                  <p className="text-[var(--color-secondary)]">
+                  <p className="text-[var(--color-secondary)] text-xs">
                     From university selection to visa applications, we support
                     you at every step of your journey.
                   </p>

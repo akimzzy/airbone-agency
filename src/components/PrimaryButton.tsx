@@ -12,7 +12,7 @@ export function PrimaryButton({
   children,
   onClick,
   className = "",
-}: PrimaryButtonProps) {
+}: Readonly<PrimaryButtonProps>) {
   const { openContactModal } = useContactModal();
 
   const handleClick = () => {
@@ -28,7 +28,7 @@ export function PrimaryButton({
       onClick={handleClick}
       className={`${
         !className?.includes("bg-") ? "bg-[#E5E0DA]" : ""
-      } text-[var(--color-primary)] px-7 py-4 rounded-full font-semibold hover:bg-[var(--color-primary)] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[var(--color-primary)] ${className}`}
+      } text-[var(--color-primary)] px-6 py-4 text-xs rounded-full font-semibold hover:bg-[var(--color-primary)] hover:text-white cursor-pointer transition-all duration-300 ease-in-out border border-[var(--color-primary)] ${className}`}
     >
       {children}
     </button>
@@ -43,7 +43,7 @@ interface ConsultationButtonProps {
 export function ConsultationButton({
   className = "",
   country,
-}: ConsultationButtonProps) {
+}: Readonly<ConsultationButtonProps>) {
   const { openContactModal } = useContactModal();
 
   return (

@@ -64,22 +64,22 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="group bg-white/50 p-8 rounded-2xl hover:bg-white/70 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl text-center border"
+              className="group bg-white/50 p-8 rounded-3xl hover:bg-white transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl text-center border border-dashed border-black/20"
             >
-              <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-4 text-[var(--color-primary)]">
+              {/* <div className="text-4xl mb-6">{service.icon}</div> */}
+              <h3 className="text-xl font-semibold mb-2 text-[var(--color-primary)]">
                 {service.title}
               </h3>
-              <p className="text-[var(--color-secondary)] mb-6 leading-relaxed">
+              <p className="text-[var(--color-secondary)] mb-3 leading-relaxed text-xs">
                 {service.description}
               </p>
-              <div className="space-y-3">
-                {service.features.map((feature, idx) => (
+              <div className="divide-y-1 divide-black/20 divide-dashed">
+                {service.features.map((feature) => (
                   <div
-                    key={idx}
-                    className="flex items-center justify-center text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors duration-300"
+                    key={feature}
+                    className="flex items-center justify-center text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors duration-300 p-3 text-xs font-semibold"
                   >
-                    <span className="text-indigo-500 mr-2">✓</span>
+                    {/* <span className="text-indigo-500 mr-2">✓</span> */}
                     {feature}
                   </div>
                 ))}

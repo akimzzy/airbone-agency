@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { PrimaryButton } from "./PrimaryButton";
 import DestinationModal from "./DestinationModal";
 
 interface University {
@@ -41,7 +40,7 @@ export default function DestinationCard({
 }: Readonly<DestinationCardProps>) {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(undefined);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -90,106 +89,110 @@ export default function DestinationCard({
 
   return (
     <>
-      <div
-        ref={cardRef}
-        className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white hover:via-white hover:to-white rounded-2xl shadow-lg transition-all cursor-pointer overflow-hidde w-[350px] min-w-[350px]"
+      <button
         onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => !isMobile && setIsHovered(false)}
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="p-8 h-[33rem] flex flex-col justify-between">
-          <div className="flex justify-between">
-            <div className="flex flex-col">
-              <span className="text-[var(--color-primary)] font-semibold flex items-center gap-2">
-                {universities} Universities
-                <div className="text-2xl">{flag}</div>
-              </span>
+        <div
+          ref={cardRef as React.RefObject<HTMLDivElement>}
+          className="relative bg-gradient-to-br from-white/15 via-white/80 to-white/15 hover:from-white hover:via-white hover:to-white rounded-3xl shadow-lg transition-all cursor-pointer overflow-hidden w-[320px] min-w-[320px]"
+        >
+          <div className="p-6 h-[30rem] flex flex-col justify-between text-xs">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <span className="text-[var(--color-primary)] font-semibold flex items-center gap-2">
+                  {universities} Universities
+                  <div className="text-2xl">{flag}</div>
+                </span>
+                <span
+                  className={`text-indigo-600 text-[10px] transition-opacity duration-300 text-left -mt-1 ${
+                    isHovered ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  see top Universities
+                </span>
+              </div>
+              <div>
+                <div
+                  className={`w-10 h-10 !p-0 flex items-center justify-center group/btn rounded-full border  ${
+                    isHovered
+                      ? "bg-[var(--color-primary)] text-white"
+                      : "bg-[#E5E0DA] text-[var(--color-primary)]"
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="transform -rotate-45 transition-colors duration-200"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col text-center items-center">
+              <h3 className="text-lg font-semibold text-[var(--color-primary)]">
+                {name}
+              </h3>
+
+              <p className="text-[var(--color-secondary)] leading-relaxed mb-2">
+                {description}
+              </p>
               <span
-                className={`text-indigo-600 text-xs transition-opacity duration-300 ${
-                  isHovered ? "opacity-0" : "opacity-100"
+                className={`text-indigo-600 text-[10px] transition-opacity duration-300 ${
+                  isHovered ? "opacity-0 hidden" : "opacity-100 visible"
                 }`}
               >
                 see top Universities
               </span>
-            </div>
-            <div>
-              <PrimaryButton
-                className={`w-10 h-10 !p-0 flex items-center justify-center group/btn ${
-                  isHovered ? "bg-[var(--color-primary)] text-white" : ""
-                }`}
-                onClick={() => {}}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transform -rotate-45 transition-colors duration-200"
+
+              <div className="border-gray-200 pt-4 w-full">
+                <div
+                  className={`transition-all duration-500 ${
+                    isHovered
+                      ? "opacity-100 max-h-[500px]"
+                      : "opacity-0 max-h-0 overflow-hidden"
+                  }`}
                 >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </PrimaryButton>
-            </div>
-          </div>
-
-          <div className="flex flex-col text-center items-center">
-            <h3 className="text-xl font-semibold mb-1 text-[var(--color-primary)]">
-              {name}
-            </h3>
-
-            <p className="text-[var(--color-secondary)] leading-relaxed mb-2">
-              {description}
-            </p>
-            <span
-              className={`text-indigo-600 text-xs transition-opacity duration-300 ${
-                isHovered ? "opacity-0 hidden" : "opacity-100 visible"
-              }`}
-            >
-              see top Universities
-            </span>
-
-            <div className="border-gray-200 pt-4 w-full">
-              <div
-                className={`transition-all duration-500 ${
-                  isHovered
-                    ? "opacity-100 max-h-[500px]"
-                    : "opacity-0 max-h-0 overflow-hidden"
-                }`}
-              >
-                <h4 className="text-[var(--color-primary)] mb-2 text-lg">
-                  Top Universities
-                </h4>
-                <div className="flex flex-col gap-2">
-                  {topUniversities?.slice(0, 3).map((uni) => (
-                    <div
-                      key={uni.name}
-                      className="bg-[var(--color-primary)]/5 p-3 rounded-2xl hover:bg-[var(--color-primary)]/10 transition-colors w-full"
-                    >
-                      <h5 className="font-bold text-[var(--color-primary)] mb-1">
-                        {uni.name}
-                      </h5>
-                      <span className="flex gap-3 justify-center">
-                        <p className="text-xs text-[var(--color-secondary)] mb-1">
-                          {uni.location}
-                        </p>
-                        {/* <p className="text-xs text-indigo-600 font-medium">
+                  <h4 className="text-[var(--color-primary)] mb-2 text-sm">
+                    Top Universities
+                  </h4>
+                  <div className="flex flex-col gap-2">
+                    {topUniversities?.slice(0, 3).map((uni) => (
+                      <div
+                        key={uni.name}
+                        className="bg-[var(--color-primary)]/5 p-3 rounded-2xl hover:bg-[var(--color-primary)]/15 transition-colors w-full"
+                      >
+                        <h5 className="font-bold text-[var(--color-primary)] mb-1">
+                          {uni.name}
+                        </h5>
+                        <span className="flex gap-3 justify-center">
+                          <p className="text-xs text-[var(--color-secondary)]">
+                            {uni.location}
+                          </p>
+                          {/* <p className="text-xs text-indigo-600 font-medium">
                           {uni.ranking}
                         </p> */}
-                      </span>
-                    </div>
-                  ))}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </button>
 
       <DestinationModal
         isOpen={isModalOpen}

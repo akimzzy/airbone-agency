@@ -10,9 +10,9 @@ import WhyChooseSection from "@/components/WhyChooseSection";
 import PartnerUniversitiesSection from "@/components/PartnerUniversitiesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
-import TeamSection from "@/components/TeamSection";
+// import TeamSection from "@/components/TeamSection";
 import ValuesSection from "@/components/ValuesSection";
-import StatsSection from "@/components/StatsSection";
+// import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -50,15 +50,15 @@ export default function Home() {
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection>
+        {/* <AnimatedSection>
           <TeamSection />
-        </AnimatedSection>
+        </AnimatedSection> */}
         <AnimatedSection>
           <ValuesSection />
         </AnimatedSection>
-        <AnimatedSection>
+        {/* <AnimatedSection>
           <StatsSection />
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
 
       {/* Contact Section */}

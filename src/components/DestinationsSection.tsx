@@ -346,7 +346,7 @@ export default function DestinationsSection() {
             </svg>
           </button>
           <div
-            className="flex overflow-x-auto pb-8 gap-4 sm:gap-6 md:gap-8 snap-x snap-mandatory hide-scrollbar destinations-scroll scroll-smooth"
+            className="flex overflow-x-auto pb-8 gap-4 sm:gap-6 snap-x snap-mandatory hide-scrollbar destinations-scroll scroll-smooth"
             onScroll={handleScroll}
           >
             {destinations.map((destination) => (

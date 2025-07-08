@@ -15,11 +15,11 @@ export default function PartnerUniversitiesSection() {
       country: "UK",
       image: "https://images.unsplash.com/photo-1526285759904-71d1170ed2ac",
     },
-    {
-      name: "University of Toronto",
-      country: "Canada",
-      image: "https://images.unsplash.com/photo-1569534068145-66497c06f1e5",
-    },
+    // {
+    //   name: "University of Toronto",
+    //   country: "Canada",
+    //   image: "https://images.unsplash.com/photo-1569534068145-66497c06f1e5",
+    // },
     {
       name: "University of Melbourne",
       country: "Australia",

@@ -64,14 +64,14 @@ export default function DestinationModal({
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <DialogPanel className="relative w-full max-w-2xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
+              <DialogPanel className="relative w-full max-w-xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
                 <div className="flex flex-col h-full">
                   <div className="px-6 py-4 relative border-b border-dashed">
                     <div className="relative z-10 flex flex-col">
-                      <div className="text-right w-full flex justify-end ">
+                      <div className="text-right w-full flex justify-end">
                         <button
                           type="button"
-                          className="cursor-pointer flex items-center text-xs gap-0.5 pb-2"
+                          className="cursor-pointer flex items-center text-xs gap-0.5 pb-3 hover:opacity-60"
                           onClick={onClose}
                         >
                           <span className="">Close</span>
@@ -102,7 +102,7 @@ export default function DestinationModal({
                     </div>
                   </div>
                   <div className="flex-1 overflow-y-auto bg-white pb-[calc(5rem+env(safe-area-inset-bottom))]">
-                    <div className="p-4">
+                    <div className="p-4 px-6">
                       <div className="max-w-5xl mx-auto">
                         {/* Features Section */}
                         <div className="divide-y divide-gray-200">

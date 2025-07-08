@@ -4,22 +4,22 @@ import { PrimaryButton } from "./PrimaryButton";
 
 export default function ContactButtons() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/1234567890", "_blank");
+    window.open("https://wa.me/2347068904268", "_blank");
   };
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:info@airborne-edu.com";
+    window.location.href = "mailto:airborneglobalconsult@gmail.com";
   };
 
   return (
     <div className="flex items-center space-x-4">
       <PrimaryButton
         onClick={handleWhatsAppClick}
-        className="w-12 h-12 !p-0 rounded-full flex items-center justify-center"
+        className="w-10 h-10 !p-0 rounded-full flex items-center justify-center"
       >
         <svg
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -33,11 +33,11 @@ export default function ContactButtons() {
       </PrimaryButton>
       <PrimaryButton
         onClick={handleEmailClick}
-        className="w-12 h-12 !p-0 rounded-full flex items-center justify-center"
+        className="w-10 h-10 !p-0 rounded-full flex items-center justify-center"
       >
         <svg
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
