@@ -30,7 +30,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8"
+            className="sm:p-8"
           >
             <h3 className="text-lg font-semibold text-[var(--color-primary)]">
               Your Journey to Global Education Starts Here
@@ -41,7 +41,7 @@ export default function AboutSection() {
               of experienced consultants is committed to providing personalized
               guidance and support throughout your educational journey.
             </p>
-            <div className="space-y-6 sm:mt-8">
+            <div className="space-y-6 mt-8">
               <div className="flex gap-4 items-center">
                 <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
                 <div>
