@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="gap-4 flex flex-wrap">
+            <ul className="gap-y-4 gap-x-8 flex flex-wrap">
               <li>
                 <Link href="/" className="hover:text-white/50">
                   Home
