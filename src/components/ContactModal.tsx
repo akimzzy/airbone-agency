@@ -16,7 +16,7 @@ export default function ContactModal({
   isOpen,
   onClose,
   selectedCountry,
-}: ContactModalProps) {
+}: Readonly<ContactModalProps>) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -49,7 +49,7 @@ export default function ContactModal({
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative bg-white rounded-3xl w-full max-w-5xl m-4 shadow-2xl overflow-hidden flex">
+      <div className="relative bg-white md:rounded-3xl w-full md:max-w-5xl h-full sm:h-auto md:m-4 shadow-2xl overflow-hidden flex">
         {/* Left side - Image */}
         <div className="w-2/5 relative hidden md:block">
           <div className="absolute inset-0 bg-[var(--color-primary)]">
@@ -96,11 +96,17 @@ export default function ContactModal({
         <div className="flex-1 p-12 text-xs">
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors"
+            className="absolute top-6 text-xl right-6 text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors"
           >
             ✕
           </button>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {/* <div className="">
+            <h2 className="text-2xl mb-1 font-bold">Schedule a consultation</h2>
+            <p className="text-xs text-gray-300">
+              Fill in your details and we will contact you soon!
+            </p>
+          </div> */}
+          <form onSubmit={handleSubmit} className="space-y-6 mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label
@@ -116,7 +122,7 @@ export default function ContactModal({
                   onChange={(e) =>
                     setFormData({ ...formData, fullName: e.target.value })
                   }
-                  className="w-full p-2 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
@@ -134,7 +140,7 @@ export default function ContactModal({
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full p-2 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
@@ -152,7 +158,7 @@ export default function ContactModal({
                   onChange={(e) =>
                     setFormData({ ...formData, phoneNumber: e.target.value })
                   }
-                  className="w-full p-2 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 />
               </div>
@@ -169,7 +175,7 @@ export default function ContactModal({
                   onChange={(e) =>
                     setFormData({ ...formData, country: e.target.value })
                   }
-                  className="w-full p-2 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-[var(--color-secondary)] transition-colors"
                   required
                 >
                   <option value="">Select a country</option>
@@ -225,7 +231,7 @@ export default function ContactModal({
             <div className="flex justify-center">
               <PrimaryButton
                 onClick={(e) => handleSubmit(e as React.FormEvent)}
-                className="text-right"
+                className="p-2"
               >
                 Submit now
               </PrimaryButton>

@@ -53,7 +53,7 @@ export default function DestinationModal({
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity" />
         </TransitionChild>
 
-        <div className="fixed inset-y-0 right-0 z-10 overflow-hidden m-1 md:m-5 sm:rounded-3xl text-[var(--color-primary)]">
+        <div className="fixed inset-y-0 right-0 z-10 overflow-hidden text-[var(--color-primary)]">
           <div className="flex min-h-screen">
             <TransitionChild
               as={Fragment}
@@ -64,7 +64,7 @@ export default function DestinationModal({
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <DialogPanel className="relative w-full max-w-xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all rounded-3xl flex flex-col h-[calc(100vh-2.5rem-env(safe-area-inset-bottom))]">
+              <DialogPanel className="relative w-full max-w-xl transform overflow-hidden bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-xl transition-all sm:rounded-l-3xl flex flex-col h-screen">
                 <div className="flex flex-col h-full">
                   <div className="px-6 py-4 relative border-b border-dashed">
                     <div className="relative z-10 flex flex-col">
