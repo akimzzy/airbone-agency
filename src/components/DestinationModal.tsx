@@ -153,7 +153,7 @@ export default function DestinationModal({
                           </section>
 
                           {/* Universities Section */}
-                          <section className="py-6">
+                          <section className="py-6 pb-26">
                             <h2 className="text-base font-bold mb-3 text-[var(--color-primary)]">
                               Top Universities
                             </h2>
@@ -179,7 +179,7 @@ export default function DestinationModal({
                       </div>
                     </div>
                     {/* CTA Section */}
-                    <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+                    <section className="fixed bottom-0 left-0 right-0 bg-white py-6 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pb-20 w-screen sm:w-auto sm:pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
                       <div className="flex justify-between items-center gap-4 max-w-2xl mx-auto">
                         <ContactButtons />
                         <ConsultationButton country={name} />
