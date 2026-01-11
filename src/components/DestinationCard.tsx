@@ -106,20 +106,18 @@ export default function DestinationCard({
                   <div className="text-2xl">{flag}</div>
                 </span>
                 <span
-                  className={`text-indigo-600 text-[10px] transition-opacity duration-300 text-left -mt-1 ${
-                    isHovered ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`text-indigo-600 text-[10px] transition-opacity duration-300 text-left -mt-1 ${isHovered ? "opacity-0" : "opacity-100"
+                    }`}
                 >
                   see top Universities
                 </span>
               </div>
               <div>
                 <div
-                  className={`w-10 h-10 !p-0 flex items-center justify-center group/btn rounded-full border  ${
-                    isHovered
+                  className={`w-10 h-10 !p-0 flex items-center justify-center group/btn rounded-full border  ${isHovered
                       ? "bg-[var(--color-primary)] text-white"
                       : "bg-[#E5E0DA] text-[var(--color-primary)]"
-                  }`}
+                    }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -149,20 +147,18 @@ export default function DestinationCard({
                 {description}
               </p>
               <span
-                className={`text-indigo-600 text-[10px] transition-opacity duration-300 ${
-                  isHovered ? "opacity-0 hidden" : "opacity-100 visible"
-                }`}
+                className={`text-indigo-600 text-[10px] transition-opacity duration-300 ${isHovered ? "opacity-0 hidden" : "opacity-100 visible"
+                  }`}
               >
                 see top Universities
               </span>
 
               <div className="border-gray-200 pt-4 w-full">
                 <div
-                  className={`transition-all duration-500 ${
-                    isHovered
+                  className={`transition-all duration-500 ${isHovered
                       ? "opacity-100 max-h-[500px]"
                       : "opacity-0 max-h-0 overflow-hidden"
-                  }`}
+                    }`}
                 >
                   <h4 className="text-[var(--color-primary)] mb-2 text-sm">
                     Top Universities

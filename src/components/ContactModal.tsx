@@ -36,8 +36,20 @@ export default function ContactModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+
+    const whatsappNumber = "2347068904268";
+    const message = `*Airborne Global Consult - New Inquiry*
+
+*Full Name:* ${formData.fullName}
+*Email:* ${formData.email}
+*Phone Number:* ${formData.phoneNumber}
+*Destination Country:* ${formData.country}
+*Message:* ${formData.message}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
     onClose();
   };
 

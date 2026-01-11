@@ -4,7 +4,7 @@ import { PrimaryButton } from "./PrimaryButton";
 
 export default function ContactButtons() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/2347068904268", "_blank");
+    window.open("https://wa.me/2347068904268");
   };
 
   const handleEmailClick = () => {

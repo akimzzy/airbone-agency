@@ -13,7 +13,7 @@ export default function DestinationsSection() {
     setIsScrollStart(container.scrollLeft <= 0);
     setIsScrollEnd(
       Math.ceil(container.scrollLeft + container.clientWidth) >=
-        container.scrollWidth
+      container.scrollWidth
     );
   };
 
@@ -304,9 +304,8 @@ export default function DestinationsSection() {
               const container = document.querySelector(".destinations-scroll");
               if (container) container.scrollLeft -= 400;
             }}
-            className={`flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
-              isScrollStart ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${isScrollStart ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -327,9 +326,8 @@ export default function DestinationsSection() {
               const container = document.querySelector(".destinations-scroll");
               if (container) container.scrollLeft += 400;
             }}
-            className={`flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${
-              isScrollEnd ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/80 hover:bg-white rounded-full shadow-lg items-center justify-center text-[var(--color-primary)] hover:text-indigo-600 transition-all duration-300 ${isScrollEnd ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

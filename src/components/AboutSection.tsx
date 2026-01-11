@@ -43,7 +43,7 @@ export default function AboutSection() {
             </p>
             <div className="space-y-6 mt-8">
               <div className="flex gap-4 items-center">
-                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
+                <div className="text-xl w-1.5 h-10 rounded-sm bg-[var(--brand-red)]"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Expert Guidance
@@ -55,7 +55,7 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="flex gap-4 items-center">
-                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
+                <div className="text-xl w-1.5 h-10 rounded-sm bg-[var(--brand-red)]"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Personalized Approach
@@ -67,7 +67,7 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className="flex gap-4 items-center">
-                <div className="text-indigo-500 text-xl w-1.5 h-10 rounded-sm bg-black"></div>
+                <div className="text-xl w-1.5 h-10 rounded-sm bg-[var(--brand-red)]"></div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1">
                     Comprehensive Support

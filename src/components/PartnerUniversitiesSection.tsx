@@ -56,11 +56,11 @@ export default function PartnerUniversitiesSection() {
         />
         <div className="relative overflow-hidden px-2 sm:px-0">
           <div
-            className="flex gap-4 sm:gap-6 animate-scroll hover:pause-animation"
-            style={{ animationDuration: "5s" }}
+            className="flex gap-4 sm:gap-6 w-max animate-scroll hover:pause-animation"
+            style={{ animationDuration: "30s" }}
           >
-            {universities.map((university) => (
-              <UniversityCard key={university.name} {...university} />
+            {[...universities, ...universities].map((university, index) => (
+              <UniversityCard key={`${university.name}-${index}`} {...university} />
             ))}
           </div>
         </div>
